@@ -13,7 +13,7 @@ while -iv <= arr.length       #itération sur toute la liste, en partant de la d
     if valv - arr[iv].to_i > marge    #si on trouve un nombre inférieur à la valeur de vente, avec une marge meilleure que celle d'avant, on garde ces jours
         vala = arr[iv].to_i
         marge = valv - vala
-        jours[0]=iv
+
 
     elsif valv < arr[iv].to_i         #si on trouve un nombre supérieur à notre valeur de vente, il y a peut-être une meilleure affaire plus tôt, on va tester s'il existe une meilleure marge plus tôt
 
@@ -25,8 +25,6 @@ while -iv <= arr.length       #itération sur toute la liste, en partant de la d
           valv = arr[iv].to_i
           vala = arr[k].to_i
           marge = valv - vala
-          jours[0]=arr.length+k+1
-          jours[1]=arr.length+iv+1
 
         end
 
@@ -37,6 +35,8 @@ while -iv <= arr.length       #itération sur toute la liste, en partant de la d
     end
 
   iv -= 1
+  jours[0] = arr.index(vala)+1
+  jours[1] = arr.index(valv)+1
 
 end
 
